@@ -30,7 +30,7 @@ import java.nio.charset.StandardCharsets;
  */
 public class NetClient extends BasePage {
 
-    public static final String PROJECT_NAME = "AndroidOLXID";
+    public static final String PROJECT_NAME = "ANDROIDOLXID";
     public static final String META = "meta";
     public static final String PAGINATION = "pagination";
     public static final String LINKS = "links";
