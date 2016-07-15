@@ -16,11 +16,10 @@ public class ScreenshootsListener extends TestListenerAdapter {
     private BasePage base;
     protected JSONArray array;
     protected AndroidSetup setup = new AndroidSetup();
-    public NetClient request = new NetClient(new AndroidSetup().getDriver());
+    public NetClient request = new NetClient(driver);
 
     @Override
     public void onTestFailure(ITestResult testResult){
-        driver = new AndroidSetup().getDriver();
         base = new BasePage(driver);
         try {
             System.out.println("***** Error "+testResult.getName()+" test has failed *****");
@@ -41,7 +40,6 @@ public class ScreenshootsListener extends TestListenerAdapter {
 
     @Override
     public void onTestSuccess(ITestResult testResult){
-        driver = new AndroidSetup().getDriver();
         base = new BasePage(driver);
         try {
             System.out.println("***** Success Execution for "+testResult.getName()+" *****");

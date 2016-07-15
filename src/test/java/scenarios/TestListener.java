@@ -19,7 +19,6 @@ public class TestListener
 	//Capture test only on Fail
     @Override
     public void onTestFailure(ITestResult testResult) {
-        driver = new AndroidSetup().getDriver();
         base = new BasePage(driver);
         request = new NetClient(driver);
     	try {

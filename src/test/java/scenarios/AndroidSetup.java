@@ -15,7 +15,6 @@ import tracking.NetClient;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
 
 public class AndroidSetup {
@@ -53,8 +52,6 @@ public class AndroidSetup {
     public void setUp(String udid) throws Exception{
         prepareAndroidForAppium(udid);
         DriverInstance.setDriver(driver);
-       // net = new NetClient(driver);
-       // this.array = net.getBugsJson();
     }
 
 
@@ -64,8 +61,4 @@ public class AndroidSetup {
         driver.quit();
     }
 
-    public  AndroidDriver getDriver (){
-        return driver;
-    }
-    
 }

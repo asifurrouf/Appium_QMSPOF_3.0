@@ -19,21 +19,6 @@ public class FavouritePageTest extends AndroidSetup {
 	private String emailValid="frengky.sheeran@gmail.com";
 	private String passValid="frengky123.,";
 
-	/*
-	@AfterMethod
-    public void onTestFailure(ITestResult testResult) throws IOException, Exception {
-		BasePage bp =  new BasePage(driver);
-      if(testResult.getStatus() == ITestResult.FAILURE){
-    	  System.out.println("test result fail");
-          bp.getAttachment("FailedOn_FavouritePageTest."+testResult.getMethod().getMethodName()+".png");
-          System.out.println("--FailedOn_FavouritePageTest."+testResult.getMethod().getMethodName()+".png");
-      }else{
-    	  System.out.println("test result success");
-    	  bp.getAttachment("SuccessOn_FavouritePageTest."+testResult.getMethod().getMethodName()+".png");
-    	  System.out.println("--SuccessOn_FavouritePageTest."+testResult.getMethod().getMethodName()+".png");
-      }
-	}*/
-	
 	
 	 @Test(priority=1)
 	 @Stories("As A User I Am Able to Click Favourite Ads")

@@ -3,13 +3,13 @@ package scenarios;
 import org.openqa.selenium.WebDriver;
 
 public class DriverInstance {
-    public static WebDriver inidriver;
+    public static WebDriver initdriver;
 	
 	public static void setDriver(WebDriver driver){
-		inidriver=driver;
+		initdriver=driver;
 	}
 	
 	public static WebDriver getDriver(){
-		return inidriver;
+		return initdriver;
 	}
 }
