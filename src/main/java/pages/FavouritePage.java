@@ -45,4 +45,10 @@ public class FavouritePage extends BasePage{
 		Assert.assertEquals(0, getSizeElements(getIdLocator(faveAdsList)));
 	}
 	
+	@Step("Click Back To Homepage")
+	public HomePage clickBackToHomePage(){
+		driver.navigate().back();
+		return new HomePage(driver);
+	}
+	
 }

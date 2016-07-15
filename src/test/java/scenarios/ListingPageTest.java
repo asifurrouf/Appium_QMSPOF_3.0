@@ -10,11 +10,12 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
-@Listeners({ScreenshootsListener.class})
+//@Listeners({ScreenshootsListener.class})
 @Features("Listing Page Feature")
 public class ListingPageTest extends AndroidSetup{
   protected ListingPage listing;
   private String mobilKeyword="Ertiga";
+    
   
   @Test(priority=1)
   @Stories("As A User I Want to be Able to Verify Mobil Menu")

@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Mobile OLXID" verbose="3" parallel="tests" thread-count="1">  
-   <test name="Fave Ads OLXID" preserve-order="false">
-       <parameter name="udid" value="Galaxy S4"/> 
-       <!--  parameter name="ipNode" value="http://172.16.100.68:4726/wd/hub"/--> 
+<suite name="Mobile OLXID" verbose="2" parallel="tests" thread-count="2">
+    <test name="Login Apps OLXID">
+       <parameter name="udid" value="192.168.99.102:5555"/> 
        <classes>
           <class name="scenarios.FavouritePageTest"/>
+       </classes>
+    </test>
+        <test name="Daftar Apps OLXID">
+       <parameter name="udid" value="192.168.99.103:5555"/> 
+       <classes>
+          <class name="scenarios.LoginPageTest"/>
        </classes>
     </test>
 </suite>

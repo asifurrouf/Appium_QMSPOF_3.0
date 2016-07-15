@@ -9,7 +9,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
-@Listeners({ScreenshootsListener.class})
+@Listeners({ScreenshootsListenerRefactor.class})
 @Features("Login Feature")
 public class LoginPageTest extends AndroidSetup{
 	private String emailValid="frengky.sheeran@gmail.com";
@@ -18,7 +18,22 @@ public class LoginPageTest extends AndroidSetup{
 	private String emailInvalidFormat="frengky";
 	private String passBlank="";
 	private LoginPage loginpage;
-	 
+	
+	/*
+	@Parameters({"udid"})
+	@BeforeClass
+	public void setUp(String udid) throws Exception{
+		prepareAndroidForAppium(udid);
+        System.out.println("Login Page Running on ...");
+	}
+	
+	
+	@AfterClass
+	 public void tearDown() throws Exception {
+	    	System.out.println("Daftar Page Quit");
+	        driver.quit();
+	 }*/
+	
 	 @Test(priority=1)
 	 @Stories("As A User I Will not be Able to Login")
 	 @TestCaseId("TC_ADR_002_001")

@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
-@Listeners({ScreenshootsListener.class})
+//@Listeners({ScreenshootsListener.class})
 @Features("Header / Top Search Feature")
 public class HeaderPageTest extends AndroidSetup{
 	private HeaderPage headerPage;

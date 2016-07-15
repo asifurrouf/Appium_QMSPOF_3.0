@@ -2,16 +2,10 @@ package pages;
 
 import java.util.List;
 
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.internal.TouchAction;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.testng.Assert;
 
 import ru.yandex.qatools.allure.annotations.Step;
@@ -98,10 +92,10 @@ public class DaftarPage extends BasePage {
 	
 	@Step("Back to Homepage")
     public HomePage clickBackButton(){
-    	//driver.navigate().back();
-		//driver.navigate().back();
-		tapOutsideNavBar();
-		tapOutsideNavBar();
+    	driver.navigate().back();
+		driver.navigate().back();
+	//	tapOutsideNavBar();
+		//tapOutsideNavBar();
     	return new HomePage(driver);
     }
 

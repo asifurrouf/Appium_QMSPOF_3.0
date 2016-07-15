@@ -1,8 +1,6 @@
 package pages;
 
 import com.google.common.base.Function;
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
@@ -95,6 +93,12 @@ public class LoginPage extends BasePage {
     	return new HomePage(driver);
     }
 
+    @Step("Back To HomePage")
+    public HomePage clickReturnToHomePage(){
+    	driver.navigate().back();
+    	return new HomePage(driver);
+    }
+    
     private void scrollElementToIntract(final By locator, final String text) {
         WebDriverWait wait = new WebDriverWait(driver, 20);
         wait.until(new Function<WebDriver, WebElement>() {

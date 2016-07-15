@@ -1,19 +1,14 @@
 package pages;
 
 import com.google.common.base.Function;
-import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidKeyCode;
-import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.asserts.Assertion;
 import ru.yandex.qatools.allure.annotations.Step;
 
-import java.util.concurrent.TimeUnit;
 
 public class HomePage extends BasePage {
 

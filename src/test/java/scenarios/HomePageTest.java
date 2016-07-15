@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
-@Listeners({ScreenshootsListener.class})
+//@Listeners({ScreenshootsListener.class})
 @Features ("Homepage Feature")
 public class HomePageTest extends AndroidSetup {
 	HomePage homepage;

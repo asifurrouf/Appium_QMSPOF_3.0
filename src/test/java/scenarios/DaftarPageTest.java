@@ -10,7 +10,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
-@Listeners({ScreenshootsListener.class})
+@Listeners({ScreenshootsListenerRefactor.class})
 @Features("Registrasi Feature")
 public class DaftarPageTest extends AndroidSetup{
 	private DaftarPage daftarPage;

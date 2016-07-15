@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 public class AndroidSetup {
 
-    public static AndroidDriver driver;
+    public AndroidDriver driver;
     public static JSONArray array;
     public NetClient net;
     
@@ -35,6 +35,7 @@ public class AndroidSetup {
 
         capabilities.setCapability("deviceName","Galaxy S4");
         capabilities.setCapability("platformName","Android");
+        capabilities.setCapability("newCommandTimeout", 60 * 5);
         //capabilities.setCapability("udid", udid);
         
         //No Reset Apps
@@ -51,8 +52,9 @@ public class AndroidSetup {
     @BeforeClass
     public void setUp(String udid) throws Exception{
         prepareAndroidForAppium(udid);
-        net = new NetClient(driver);
-        this.array = net.getBugsJson();
+        DriverInstance.setDriver(driver);
+       // net = new NetClient(driver);
+       // this.array = net.getBugsJson();
     }
 
 
@@ -62,7 +64,7 @@ public class AndroidSetup {
         driver.quit();
     }
 
-    public static AndroidDriver getDriver (){
+    public  AndroidDriver getDriver (){
         return driver;
     }
     

@@ -15,7 +15,7 @@ import ru.yandex.qatools.allure.annotations.Title;
  * Created by buddyarifin on 6/23/16.
  */
 
-@Listeners({ScreenshootsListener.class})
+//@Listeners({ScreenshootsListener.class})
 @Features("Listing Details Page")
 public class ListingDetailPageTest extends AndroidSetup {
     protected ListingPage listingPage;
