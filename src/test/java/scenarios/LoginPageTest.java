@@ -9,7 +9,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
-@Listeners({ScreenshootsListenerRefactor.class})
+@Listeners({ScreenshootsListener.class})
 @Features("Login Feature")
 public class LoginPageTest extends AndroidSetup{
 	private String emailValid="frengky.sheeran@gmail.com";

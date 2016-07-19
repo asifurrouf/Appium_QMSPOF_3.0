@@ -25,7 +25,7 @@ public class HomePage extends BasePage {
     private String postAdsLink="com.app.tokobagus.betterb:id/postAdButton";
     private String pilihLokasi="Lokasi terdekat";
     private String searchLink="com.app.tokobagus.betterb:id/action_search";
-    private String openNav="Buka navigasi";
+    public String openNav="Buka navigasi";
     private String navLogin="com.app.tokobagus.betterb:id/log_in";
     private String navDaftar="com.app.tokobagus.betterb:id/register";
     private String searchButtonID="com.app.tokobagus.betterb:id/action_search";
@@ -34,6 +34,7 @@ public class HomePage extends BasePage {
     private String notifOpenAppsLocation="com.app.tokobagus.betterb:id/pager_title_strip";
     private String googlePlayServices="Get Google Play services";
     private String favoritText="Favorit";
+    private String pengaturanText="Pengaturan";
     
     
     public HomePage(WebDriver driver) {
@@ -146,14 +147,14 @@ public class HomePage extends BasePage {
     
     @Step("Go to Login Menu")
     public LoginPage clickLoginPage(){
-    	clickElement(getContentLocator(openNav));
+        openNav();
     	clickElement(getIdLocator(navLogin));
     	return new LoginPage(driver);
     }
     
     @Step("Go To Daftar Menu")
     public DaftarPage clickDaftarPage(){
-    	clickElement(getContentLocator(openNav));
+        openNav();
     	clickElement(getIdLocator(navDaftar));
     	return new DaftarPage(driver);
     }
@@ -166,9 +167,14 @@ public class HomePage extends BasePage {
     
     @Step("Go to Fave Menu")
     public FavouritePage clickFavePage(){
-        clickElement(getContentLocator(openNav));
+        openNav();
         clickElement(getTextLocator(favoritText));
         return new FavouritePage(driver);
+    }
+
+    public LoginPage openNav() {
+        clickElement(getContentLocator(openNav));
+        return new LoginPage(driver);
     }
     
  
@@ -221,6 +227,13 @@ public class HomePage extends BasePage {
     public JualIklanPage clickJualIklan(){
     	clickElement(getIdLocator(postAdsLink));
     	return new JualIklanPage(driver);
+    }
+
+    @Step("Click Pengaturan Page")
+    public PengaturanPage clickPengaturanBtn() {
+        openNav();
+        clickElement(getTextLocator(pengaturanText));
+        return new PengaturanPage(driver);
     }
     
     public void clearText(WebElement elementToBeCleared) {
