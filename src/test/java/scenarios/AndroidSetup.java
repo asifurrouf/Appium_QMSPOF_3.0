@@ -7,9 +7,9 @@ import pages.Constant;
 import org.json.JSONArray;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
+import org.testng.ITestContext;
+import org.testng.annotations.*;
+import pages.BasePage;
 import tracking.NetClient;
 
 import java.io.File;
@@ -49,16 +49,13 @@ public class AndroidSetup {
 
     @Parameters({"udid"})
     @BeforeClass
-    public void setUp(String udid) throws Exception{
+    public void setUp(String udid, ITestContext ctx) throws Exception{
         prepareAndroidForAppium(udid);
-        DriverInstance.setDriver(driver);
+        ctx.setAttribute("WebDriver", this.driver);
     }
-
 
     @AfterClass
     public void tearDown() throws Exception {
-        System.out.println("Closed App and Erase session ");
         driver.quit();
     }
-
 }

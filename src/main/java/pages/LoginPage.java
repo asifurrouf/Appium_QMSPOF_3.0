@@ -76,6 +76,7 @@ public class LoginPage extends BasePage {
     @Step("Click LogOut")
     public HomePage clickLogout(){
         System.out.println("Click Logout");
+        isWaitElementPresent(getTextLocator(logoutButtonText));
         scrollElementToIntract(getTextLocator(logoutButtonText), "Log out");
         clickElement(getTextLocator(logoutButtonText));
     	return new HomePage(driver);

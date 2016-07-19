@@ -1,5 +1,6 @@
 package scenarios;
 
+import io.appium.java_client.android.AndroidDriver;
 import org.json.JSONArray;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -8,23 +9,26 @@ import pages.BasePage;
 import sun.nio.ch.Net;
 import tracking.NetClient;
 
+import java.lang.reflect.Field;
+
 /**
  * Created by buddyarifin on 6/14/16.
  */
-public class ScreenshootsListener extends TestListenerAdapter {
-    private WebDriver driver;
+public class ScreenshootsListener extends TestListenerAdapter  {
     private BasePage base;
-    protected JSONArray array;
-    protected AndroidSetup setup = new AndroidSetup();
-    public NetClient request = new NetClient(driver);
+    WebDriver driver;
+    Object obj;
+    AndroidSetup androidSetup;
 
     @Override
     public void onTestFailure(ITestResult testResult){
+        obj = testResult.getInstance();
+        driver = ((AndroidSetup)obj).driver;
         base = new BasePage(driver);
         try {
             System.out.println("***** Error "+testResult.getName()+" test has failed *****");
             base.getAttachment("FailedOn_"+testResult.getTestClass().getName()+testResult.getMethod().getMethodName()+".png");
-            request.goToTracker(testResult, this.array);
+//            request.goToTracker(testResult, this.array);
             System.out.println("FailedOn_"+testResult.getTestClass().getName()+testResult.getMethod().getMethodName()+".png");
         } catch (Exception e){
             System.out.print("-->Unable to screen capture");
@@ -34,16 +38,18 @@ public class ScreenshootsListener extends TestListenerAdapter {
 
     @Override
     public void onTestStart(ITestResult result){
-        System.out.println("Running Test -> "+result.getMethod().getMethodName());
-        this.array = AndroidSetup.array;
+        System.out.println("Running Test --> "+result.getMethod().getMethodName());
+//        this.array = AndroidSetup.array;
     }
 
     @Override
     public void onTestSuccess(ITestResult testResult){
+        obj = testResult.getInstance();
+        driver = ((AndroidSetup)obj).driver;
         base = new BasePage(driver);
         try {
             System.out.println("***** Success Execution for "+testResult.getName()+" *****");
-            request.goToTracker(testResult, this.array);
+//            request.goToTracker(testResult, this.array);
         } catch (Exception e){
             e.printStackTrace();
         }

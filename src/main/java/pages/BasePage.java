@@ -121,6 +121,10 @@ public class BasePage  {
     public By getTextLocator(String locator){
     	return By.xpath("//android.widget.TextView[@text='"+locator+"']");
     }
+
+    public By getSwitchTextLocator(String locator) {
+        return By.xpath("//android.widget.Switch[@text='"+locator+"']");
+    }
     
     public By getEditTextLocator(String locator){
     	return By.xpath("//android.widget.EditText[@text='"+locator+"']");

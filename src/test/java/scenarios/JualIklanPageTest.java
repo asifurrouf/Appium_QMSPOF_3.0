@@ -19,7 +19,7 @@ import ru.yandex.qatools.allure.annotations.Title;
 import sun.nio.ch.Net;
 import tracking.NetClient;
 
-//@Listeners({ScreenshootsListener.class})
+@Listeners({ScreenshootsListener.class})
 @Features("Jual Iklan Features")
 public class JualIklanPageTest extends AndroidSetup{
     private JualIklanPage jualIklan;
