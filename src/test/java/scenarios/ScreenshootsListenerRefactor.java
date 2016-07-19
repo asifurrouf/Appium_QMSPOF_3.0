@@ -10,7 +10,7 @@ public class ScreenshootsListenerRefactor extends TestListenerAdapter  {
     private WebDriver driver;
 
     @Override
-    public void onTestFailure(ITestResult testResult){
+    public void onTestSuccess(ITestResult testResult){
     	driver = DriverInstance.getDriver();
         base = new BasePage(driver);
         try {
