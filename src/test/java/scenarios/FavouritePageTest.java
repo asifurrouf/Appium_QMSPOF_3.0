@@ -12,7 +12,7 @@ import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
-@Listeners({ScreenshootsListenerRefactor.class})
+@Listeners({ScreenshootsListener.class})
 @Features("Favourite Feature")
 public class FavouritePageTest extends AndroidSetup {
     private FavouritePage favourite;
@@ -59,12 +59,12 @@ public class FavouritePageTest extends AndroidSetup {
 		 login.clickSubmitLoginButton();
 		 login.clickBackButton();
 		 MobilPage mobil = homepage.clickMobilPage();
-		 ListingPage listing = mobil.clickSemuaMobilLink();
+		 ListingPage listing = mobil.clickSemuaMobilLink(); 
 	     listing.clickFaveAds();
 		 favourite = homepage.clickFavePage();
 		 favourite.verifyFaveListed();	 
 		 homepage = favourite.clickBackToHomePage();
-		 login = homepage.clickLoginPage();
+		 login = homepage.openNav();
 		 login.clickLogout();
 	 }
 }
