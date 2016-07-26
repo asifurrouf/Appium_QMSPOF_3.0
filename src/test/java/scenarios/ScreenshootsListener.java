@@ -3,13 +3,18 @@ package scenarios;
 import io.appium.java_client.android.AndroidDriver;
 import org.json.JSONArray;
 import org.openqa.selenium.WebDriver;
+import org.testng.ITestContext;
+import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 import pages.BasePage;
+import ru.yandex.qatools.allure.annotations.Title;
+import ru.yandex.qatools.allure.utils.AnnotationManager;
 import sun.nio.ch.Net;
 import tracking.NetClient;
 
 import java.lang.reflect.Field;
+import java.util.Iterator;
 
 /**
  * Created by buddyarifin on 6/14/16.
@@ -52,6 +57,22 @@ public class ScreenshootsListener extends TestListenerAdapter  {
 //            request.goToTracker(testResult, this.array);
         } catch (Exception e){
             e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onFinish(ITestContext testContext) {
+        Iterator<ITestResult> listOfFailedTests = testContext.getFailedTests().getAllResults().iterator();
+        while (listOfFailedTests.hasNext()){
+            ITestResult failedTest = listOfFailedTests.next();
+            ITestNGMethod method = failedTest.getMethod();
+            if (testContext.getFailedTests().getResults(method).size() > 1){
+                listOfFailedTests.remove();
+            } else {
+                if (testContext.getPassedTests().getResults(method).size() > 0) {
+                    listOfFailedTests.remove();
+                }
+            }
         }
     }
 
