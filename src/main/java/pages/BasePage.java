@@ -1,5 +1,6 @@
 package pages;
 
+import athena.Sinon;
 import com.google.common.base.Function;
 import io.appium.java_client.android.AndroidDriver;
 import org.apache.commons.io.FileUtils;
@@ -28,15 +29,20 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created Simple by Egakun on 22 March 2015
+ * Created Simple by AT team
  */
 public class BasePage  {
 
     protected WebDriver driver;
-    String app_package_name = "com.app.tokobagus.betterb:id/name";
+    Sinon rdata;
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
+//        this.rdata = new Sinon();
+    }
+
+    protected Sinon getSinonUserData() {
+        return this.rdata;
     }
     
     protected void waitForVisibilityOf(By locator) {
@@ -161,7 +167,7 @@ public class BasePage  {
     }
     
     protected byte[] attachScreenShot(String filename) throws IOException{
-    	File file = new File(Constant.screenshotsDir+filename);
+    	File file = new File(Constants.screenshotsDir+filename);
     	FileOutputStream screenshotStream = new FileOutputStream(file);
     	byte[] bytes =  ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);	
     	screenshotStream.write(bytes);
@@ -171,8 +177,8 @@ public class BasePage  {
 
     protected void takeScreenShotInFile(String filename) throws Exception{
     	File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-    	new File(Constant.screenshotsDir).mkdirs();
-    	FileUtils.copyFile(file, new File(Constant.screenshotsDir+filename));
+    	new File(Constants.screenshotsDir).mkdirs();
+    	FileUtils.copyFile(file, new File(Constants.screenshotsDir+filename));
     }
     
     protected WebElement getTextElements(String locator,int index){

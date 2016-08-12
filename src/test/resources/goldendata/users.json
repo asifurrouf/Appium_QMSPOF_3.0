@@ -1,0 +1,11 @@
+{
+  "users" : {
+    "id": 1,
+    "username": "jonsnow",
+    "first_name": "Jon",
+    "last_name": "Snow",
+    "avatar": "https://www.gravatar.com/avatar/dc8c6cbda45057bee1f843babd74dd1a",
+    "email": "jon.snow@thewall.com",
+    "created_at": "Fri, 07 Mar 2014 22:28:15 +0000"
+  }
+}

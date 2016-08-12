@@ -1,8 +1,5 @@
 package tracking;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -15,15 +12,13 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.Test;
 import pages.BasePage;
-import pages.Constant;
+import pages.Constants;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 
 /**
  * Created by buddyarifin on 5/31/16.
@@ -183,7 +178,7 @@ public class NetClient extends BasePage {
             HttpPost post = new HttpPost(endPoint + "/v1/bugs/" + getLastBugsID() + "/attachments");
             post.setHeader("Authorization", "Bearer " + token);
 
-            File screenshoot = new File(Constant.screenshotsDir+"/FailedOn_"+result.getTestClass().getName()
+            File screenshoot = new File(Constants.screenshotsDir+"/FailedOn_"+result.getTestClass().getName()
                     +result.getMethod().getMethodName()+".png");
 
             MultipartEntityBuilder builder = MultipartEntityBuilder.create();

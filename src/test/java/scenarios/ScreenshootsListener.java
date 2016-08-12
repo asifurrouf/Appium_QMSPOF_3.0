@@ -1,8 +1,10 @@
 package scenarios;
 
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.json.JSONArray;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
 import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
@@ -10,6 +12,7 @@ import org.testng.TestListenerAdapter;
 import pages.BasePage;
 import ru.yandex.qatools.allure.annotations.Title;
 import ru.yandex.qatools.allure.utils.AnnotationManager;
+import scenarios.AndroidSetup;
 import sun.nio.ch.Net;
 import tracking.NetClient;
 
@@ -44,6 +47,9 @@ public class ScreenshootsListener extends TestListenerAdapter  {
     @Override
     public void onTestStart(ITestResult result){
         System.out.println("Running Test --> "+result.getMethod().getMethodName());
+        obj = result.getInstance();
+        driver = ((AndroidSetup)obj).driver;
+        PageFactory.initElements(new AppiumFieldDecorator(driver), obj);
 //        this.array = AndroidSetup.array;
     }
 
