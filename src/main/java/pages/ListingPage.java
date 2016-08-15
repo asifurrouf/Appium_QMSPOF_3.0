@@ -1,12 +1,10 @@
 package pages;
 
 import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.pagefactory.AndroidFindAll;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AndroidFindBys;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import ru.yandex.qatools.allure.annotations.Step;
@@ -18,6 +16,8 @@ import java.util.List;
  */
 public class ListingPage extends BasePage {
 
+    public static final String relativeLayout = "android.widget.RelativeLayout";
+    public static final String linearLayout = "android.widget.LinearLayout";
     protected static String titleListingText = "Pilih Kategori Favorit Kamu";
     protected static final String categoryListingID = "com.app.tokobagus.betterb:id/rvCategory";
     protected static final String cardViewID = "com.app.tokobagus.betterb:id/card_view";
@@ -31,8 +31,8 @@ public class ListingPage extends BasePage {
 
     @AndroidFindBys({
             @AndroidFindBy( id = cardViewID ),
-            @AndroidFindBy(className = "android.widget.RelativeLayout"),
-            @AndroidFindBy(className = "android.widget.LinearLayout"),
+            @AndroidFindBy(className = relativeLayout),
+            @AndroidFindBy(className = linearLayout),
             @AndroidFindBy(id = categoryTitle)
     })
     protected List<AndroidElement> categoryContainers;
@@ -48,13 +48,13 @@ public class ListingPage extends BasePage {
         Assert.assertTrue(isElementPresent(getTextLocator(titleListingText)));
     }
 
-    @Step("Verify Category Listing")
+    @Step("Verify Available Category on Listing")
     public void verifyCategoryListing() {
-        System.out.println("Category Available ");
+        System.out.println("Category Available : ");
         isWaitElementPresent(getIdLocator(cardViewID));
         for (int i = 0 ; i < categoryContainers.size() ; i++) {
             String category = categoryContainers.get(i).getText();
-            System.out.println(category + " ");
+            System.out.println("- "+category + " ");
             Assert.assertNotNull(category);
         }
     }

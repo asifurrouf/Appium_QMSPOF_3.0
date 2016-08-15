@@ -1,8 +1,12 @@
 package scenarios;
 
+import org.testng.annotations.Listeners;
+
 /**
  * Created by buddyarifin on 8/5/16.
  */
+
+@Listeners(ScreenshootsListener.class)
 public class LoginWithOlxTest extends AndroidSetup {
 
     // login With OLX Login Page

@@ -4,6 +4,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.ListingPage;
+import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.Title;
 
@@ -12,6 +13,7 @@ import ru.yandex.qatools.allure.annotations.Title;
  */
 
 @Listeners(ScreenshootsListener.class)
+@Features("Listing Page")
 public class ListingPageTest extends AndroidSetup {
 
     @Title("Verify Contents and Category")

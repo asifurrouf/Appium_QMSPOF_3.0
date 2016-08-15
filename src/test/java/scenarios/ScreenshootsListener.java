@@ -1,8 +1,6 @@
 package scenarios;
 
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.json.JSONArray;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestContext;
@@ -10,13 +8,9 @@ import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.TestListenerAdapter;
 import pages.BasePage;
-import ru.yandex.qatools.allure.annotations.Title;
 import ru.yandex.qatools.allure.utils.AnnotationManager;
-import scenarios.AndroidSetup;
-import sun.nio.ch.Net;
-import tracking.NetClient;
 
-import java.lang.reflect.Field;
+import java.lang.annotation.Annotation;
 import java.util.Iterator;
 
 /**
@@ -24,9 +18,9 @@ import java.util.Iterator;
  */
 public class ScreenshootsListener extends TestListenerAdapter  {
     private BasePage base;
-    WebDriver driver;
-    Object obj;
-    AndroidSetup androidSetup;
+    private WebDriver driver;
+    private Object obj;
+    private Annotation[] annotations;
 
     @Override
     public void onTestFailure(ITestResult testResult){
@@ -34,20 +28,20 @@ public class ScreenshootsListener extends TestListenerAdapter  {
         driver = ((AndroidSetup)obj).driver;
         base = new BasePage(driver);
         try {
-            System.out.println("***** Error "+testResult.getName()+" test has failed *****");
+            System.out.println("***** Error "+getTestTitle(testResult)+" test has failed *****");
             base.getAttachment("FailedOn_"+testResult.getTestClass().getName()+testResult.getMethod().getMethodName()+".png");
 //            request.goToTracker(testResult, this.array);
             System.out.println("FailedOn_"+testResult.getTestClass().getName()+testResult.getMethod().getMethodName()+".png");
         } catch (Exception e){
-            System.out.print("-->Unable to screen capture");
+            System.out.print("-->Unable to screen capture, for test "+getTestTitle(testResult));
             e.printStackTrace();
         }
     }
 
     @Override
-    public void onTestStart(ITestResult result){
-        System.out.println("Running Test --> "+result.getMethod().getMethodName());
-        obj = result.getInstance();
+    public void onTestStart(ITestResult testResult){
+        System.out.println("Running Test --> "+getTestTitle(testResult));
+        obj = testResult.getInstance();
         driver = ((AndroidSetup)obj).driver;
         PageFactory.initElements(new AppiumFieldDecorator(driver), obj);
 //        this.array = AndroidSetup.array;
@@ -59,7 +53,7 @@ public class ScreenshootsListener extends TestListenerAdapter  {
         driver = ((AndroidSetup)obj).driver;
         base = new BasePage(driver);
         try {
-            System.out.println("***** Success Execution for "+testResult.getName()+" *****");
+            System.out.println("***** Success Execution for "+getTestTitle(testResult)+" *****");
 //            request.goToTracker(testResult, this.array);
         } catch (Exception e){
             e.printStackTrace();
@@ -80,6 +74,12 @@ public class ScreenshootsListener extends TestListenerAdapter  {
                 }
             }
         }
+    }
+
+    public String getTestTitle(ITestResult result) {
+        annotations = result.getMethod().getConstructorOrMethod().getMethod().getAnnotations();
+        AnnotationManager annotationManager = new AnnotationManager(annotations);
+        return annotationManager.getTitle();
     }
 
 }
