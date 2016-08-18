@@ -4,7 +4,7 @@
        <parameter name="udid" value="Galaxy S4"/> 
        <!--  parameter name="ipNode" value="http://172.16.100.68:4726/wd/hub"/--> 
        <classes>
-          <class name="scenarios.AndroidSetupBackup"/>
+          <class name="scenarios.FavouritePageTest"/>
        </classes>
     </test>
 </suite>

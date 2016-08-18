@@ -62,7 +62,7 @@ public class FavouritePageTest extends AndroidSetup {
 		 ListingPage listing = mobil.clickSemuaMobilLink(); 
 	     listing.clickFaveAds();
 		 favourite = homepage.clickFavePage();
-		 favourite.verifyFaveListed();	 
+		 favourite.verifyFaveListed();	    
 		 homepage = favourite.clickBackToHomePage();
 		 login = homepage.openNav();
 		 login.clickLogout();

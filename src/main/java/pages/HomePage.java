@@ -152,6 +152,8 @@ public class HomePage extends BasePage {
     	return new LoginPage(driver);
     }
     
+   
+    
     @Step("Go To Daftar Menu")
     public DaftarPage clickDaftarPage(){
         openNav();

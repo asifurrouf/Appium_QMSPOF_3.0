@@ -47,6 +47,11 @@ public class AndroidSetup {
         System.out.println("SESSION CREATED : "+driver.getSessionId().toString()+" "+udid+" ");
     }
 
+    public void scrollTo(String text){
+        driver.scrollTo(text);	
+    }
+    
+    
     @Parameters({"udid"})
     @BeforeClass
     public void setUp(String udid, ITestContext ctx) throws Exception{

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Mobile OLXID" verbose="2" parallel="tests" thread-count="2">
+<suite name="Mobile OLXID" verbose="2" parallel="tests" thread-count="4">
     <test name="Fave Apps OLXID">
        <parameter name="udid" value="192.168.99.101:5555"/> 
        <classes>
@@ -10,6 +10,18 @@
        <parameter name="udid" value="192.168.99.102:5555"/> 
        <classes>
           <class name="scenarios.LoginPageTest"/>
+       </classes>
+    </test>
+     <test name="Daftar Apps OLXID">
+       <parameter name="udid" value="192.168.99.103:5555"/> 
+       <classes>
+          <class name="scenarios.DaftarPageTest"/>
+       </classes>
+    </test>
+    <test name="Listing Apps OLXID">
+       <parameter name="udid" value="Infinix"/> 
+       <classes>
+          <class name="scenarios.ListingPageTest"/>
        </classes>
     </test>
 </suite>
