@@ -19,8 +19,6 @@ public class LoginTest extends AndroidSetup {
         LoginWithGplus gplus = homePage.clickLoginWithGPlus();
         gplus.verifyAccountExist();
     }
-    public void userAbleToRedirectToSmsLogin() {}
-    public void userAbleToRedirectToOlxLogin() {}
 
     // login With OLX Login Page
     public void userNotAbleToLoginWithUnregisteredEmail() {}
