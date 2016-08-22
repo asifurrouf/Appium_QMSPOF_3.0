@@ -6,6 +6,7 @@ import pages.HomePage;
 import pages.ListingPage;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
+import ru.yandex.qatools.allure.annotations.TestCaseId;
 import ru.yandex.qatools.allure.annotations.Title;
 
 /**
@@ -13,10 +14,12 @@ import ru.yandex.qatools.allure.annotations.Title;
  */
 
 @Listeners(ScreenshootsListener.class)
-@Features("Listing Page")
+@Features("Listing Feature")
 public class ListingPageTest extends AndroidSetup {
 
-    @Title("Verify Contents and Category")
+    @Stories("Verify Category can be Accessed after Login")
+    @Title("Verify Contents and Category accessible after Login")
+    @TestCaseId("TC_CATEGORY_04_001")
     @Test(priority = 1)
     public void verifyAllContensOfListingPage() {
         HomePage homePage = new HomePage(driver);

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 /**
  * Created by buddyarifin on 8/12/16.
  */
-public class LoginWithFB extends HomePage {
+public class LoginWithFB extends BasePage {
 
     public static final String email = "";
     public static final String password = "";
@@ -33,5 +33,6 @@ public class LoginWithFB extends HomePage {
     public static void verifyCloseBtn() {}
     public static void verifyConfirmBtn() {}
     public static void verifyAccessFBInfo() {}
+    public static void verifySetCategoryPrefefences() {}
 
 }

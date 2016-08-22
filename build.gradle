@@ -31,9 +31,12 @@ dependencies {
     compile 'org.hamcrest:hamcrest-all:1.3'
     compile 'commons-net:commons-net:3.3'
     compile 'org.json:json:20160212'
-    compile 'org.testng:testng:6.8'
+    compile 'org.testng:testng:6.9.10'
     compile 'ru.d10xa:gradle-allure-plugin:0.5.2'
     compile "ru.yandex.qatools.allure:allure-testng-adaptor:${allureVersion}"
+    compile 'log4j:log4j:1.2.17'
+    compile 'org.slf4j:slf4j-api:1.7.21'
+    compile 'org.slf4j:slf4j-simple:1.7.21'
 }
 
 allure {
@@ -49,7 +52,15 @@ allure {
 }
 
 test {
-    testLogging.showStandardStreams = true
+    testLogging {
+        showStandardStreams true
+        exceptionFormat "short"
+
+        info {
+            events "started", "skipped", "failed"
+            exceptionFormat "short"
+        }
+    }
     description = "Running Test from suite TestNG xml"
     useTestNG {
         suites "src/test/resources/testng.xml"

@@ -13,6 +13,7 @@ import pages.Constants;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.*;
 import tracking.NetClient;
+import utils.Log;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,7 +36,7 @@ public class AndroidSetup {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("device","Android");
 
-        capabilities.setCapability("appPackage", "com.app.tokobagus.betterb");
+        capabilities.setCapability("appPackage", "com.app.sulley");
         capabilities.setCapability("appActivity", "sea.olxsulley.presentation.view.entrance.EntranceActivity");
 
         capabilities.setCapability("deviceName","Galaxy S4");
@@ -50,7 +51,7 @@ public class AndroidSetup {
         //other caps
         capabilities.setCapability("app", app.getAbsolutePath());
         driver =  new AndroidDriver(new URL(Constants.hubIP), capabilities);
-        System.out.println("SESSION CREATED : "+driver.getSessionId().toString()+" "+udid+" ");
+        Log.info("SESSION CREATED : "+driver.getSessionId().toString()+" "+udid+" ");
     }
 
     @Parameters({"udid"})
@@ -82,7 +83,7 @@ public class AndroidSetup {
             jsonObject = jsonElement.getAsJsonObject();
         }catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println("Warning : File not found");
+            Log.info("Warning : File not found");
         }
         return jsonObject;
     }

@@ -26,5 +26,6 @@ public class LoginWithOlxPage extends BasePage {
     public void verifyErrorWrongCredentials() {}
     public void verifyShowPass() {}
     public void clickLoginWithOlxBtn() {}
+    public void verifySetCategoryPrefefences() {}
 
 }

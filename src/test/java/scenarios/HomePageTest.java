@@ -3,6 +3,7 @@ package scenarios;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.HomePage;
+import pages.LoginWithGplus;
 import ru.yandex.qatools.allure.annotations.Features;
 import ru.yandex.qatools.allure.annotations.Stories;
 import ru.yandex.qatools.allure.annotations.TestCaseId;
@@ -12,7 +13,7 @@ import ru.yandex.qatools.allure.annotations.Title;
  * Created by buddyarifin on 8/5/16.
  */
 @Listeners(ScreenshootsListener.class)
-@Features("LOGIN page")
+@Features("Home Page Feature")
 public class HomePageTest extends AndroidSetup {
 
     @Stories("As A User I Want to see overall Login Page Details")
@@ -32,11 +33,6 @@ public class HomePageTest extends AndroidSetup {
         HomePage homePage = new HomePage(driver);
         homePage.clickSkipButton();
     }
-
-    public void userAbleToRedirectToFacebookLogin() {}
-    public void userAbleToRedirectToGmailLogin() {}
-    public void userAbleToRedirectToSmsLogin() {}
-    public void userAbleToRedirectToOlxLogin() {}
 
     @Stories("As a User I Want to be able to Swipe/Scroll the Intro Image")
     @Title("Verify User Able to Swipe/Scroll the Intro Images")

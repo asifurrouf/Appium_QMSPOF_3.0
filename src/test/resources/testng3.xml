@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Mobile Browser OLXID" verbose="3" parallel="methods" thread-count="1">
+<suite name="Mobile App OLXID" verbose="3" parallel="methods" thread-count="1">
 
     <listeners>
         <listener class-name="Listeners.RetryListeners" />
     </listeners>
 
-   <test name="Test 01" preserve-order="false">
+   <test name="Home Page OLXID" preserve-order="false">
        <classes>
           <class name="scenarios.HomePageTest"/>
        </classes>
